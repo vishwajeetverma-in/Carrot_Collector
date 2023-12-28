@@ -29,5 +29,13 @@ public class Player : MonoBehaviour
         transform.Translate(hInput, vInput, 0);
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "Carrot")
+        {
+            Destroy(collision.gameObject);
+        }
+    }
+
 
 }
