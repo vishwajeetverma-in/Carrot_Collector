@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
     public FixedJoystick joystick;
      float hInput, vInput;
     public float movSpeed;
+    int score = 0;
 
 
     // Start is called before the first frame update
@@ -33,6 +34,7 @@ public class Player : MonoBehaviour
     {
         if(collision.gameObject.tag == "Carrot")
         {
+            score++;
             Destroy(collision.gameObject);
         }
     }
