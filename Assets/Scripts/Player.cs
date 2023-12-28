@@ -8,6 +8,9 @@ public class Player : MonoBehaviour
      float hInput, vInput;
     public float movSpeed;
     int score = 0;
+    public GameObject winText;
+    public int winScore;
+
 
 
     // Start is called before the first frame update
@@ -36,6 +39,10 @@ public class Player : MonoBehaviour
         {
             score++;
             Destroy(collision.gameObject);
+            if(score >= winScore)
+            {
+                winText.SetActive(true);
+            }
         }
     }
 
