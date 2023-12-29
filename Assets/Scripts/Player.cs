@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -10,6 +13,10 @@ public class Player : MonoBehaviour
     int score = 0;
     public GameObject winText;
     public int winScore;
+    public TextMeshProUGUI scoreText;
+    public GameObject PlayAgain;
+
+
 
 
 
@@ -38,12 +45,20 @@ public class Player : MonoBehaviour
         if(collision.gameObject.tag == "Carrot")
         {
             score++;
+            scoreText.text = score.ToString();
             Destroy(collision.gameObject);
             if(score >= winScore)
             {
                 winText.SetActive(true);
+                PlayAgain.SetActive(true);
             }
         }
+    }
+
+     public void LoadScene()
+    {
+        SceneManager.LoadScene("Level1");
+
     }
 
 
